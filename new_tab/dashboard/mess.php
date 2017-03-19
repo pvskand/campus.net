@@ -42,6 +42,12 @@
 			$category = "Lunch";
 		}
 		else{
+			if($day==7){
+				$day = 1;
+			}
+			else{
+				$day++;
+			}
 			$category = "Breakfast";
 		}
 		$sql = "SELECT item1,item2,item3,item4 FROM $category WHERE day=$day";

@@ -11,7 +11,6 @@ $.ajax({
       document.getElementById("item4").innerHTML = data["item4"];
     }
 });
-
 /*
 $.ajax({
     type: "POST",
@@ -36,33 +35,24 @@ $.ajax({
     url: "http://localhost/dashboard/event.php",
     success: function(data){
       console.log(data.length);
-      data = JSON.parse(data);
-      console.log(data.length);
-      console.log(data[0]["name"]);
-      document.getElementById("name").innerHTML = data["name"];
-      /*
-      document.getElementById("item1").innerHTML = data["item1"];
-      document.getElementById("item2").innerHTML = data["item2"];
-      document.getElementById("item3").innerHTML = data["item3"];
-      document.getElementById("item4").innerHTML = data["item4"];
-      */
-    }
+      data = $.parseJSON(data);
+      document.getElementById("event_name").innerHTML = data["name"];
+      document.getElementById("event_organiser").innerHTML = data["organiser"];
+      document.getElementById("event_venue").innerHTML = data["venue"];
+      document.getElementById("event_link").innerHTML = data["link"];
+      document.getElementById("event_begin_time").innerHTML = data["begin_time"];
+      document.getElementById("event_end_time").innerHTML = data["end_time"];
+      }
 });
 
-
-// Save url in chrome storage
 function saveUrls() {
     
-    // Fetch urls from textarea and split it
     var urls = document.getElementById('urls').value.split('\n');
     
     var urlsContainer = "";
     
-    // run a loop on the fetched urls
     for (i=0; i<urls.length; i++) {
 
-
-      // if the user input valid urls, save it in local chrome storage
       if(urls[i] != ' ') {
          
          urlsContainer += urls[i] + '\n';
@@ -74,23 +64,11 @@ function saveUrls() {
   
 
 document.addEventListener('DOMContentLoaded', function () {
-
-
-  
-  // add an event listener to load url when button is clicked
-  //document.getElementById('button').addEventListener('click', loadUrls);
-  
-  // add an event listener to save url when button is clicked
-  //document.getElementById('button').addEventListener('click', saveUrls);
-    
-    // reload the urls in the browser
     var urls = localStorage['urls'];
     if (!urls) {
       return;
     }
     document.getElementById('urls').value = urls;
-
-
 });
 
 
