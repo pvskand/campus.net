@@ -1,7 +1,7 @@
 <?php
 	require_once("connect.php");
 	if($conn){
-		$sql = "SELECT * FROM event";
+		$sql = "SELECT * FROM event WHERE begin_time >= NOW();";
 		$res = mysqli_query($conn,$sql);
 		if($res){
 			$i = 0;
