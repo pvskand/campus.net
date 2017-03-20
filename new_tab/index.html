@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src = "popup.js"></script>
@@ -14,45 +15,72 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-3">
+				<!--
 				<h4 id="category"></h4>
 				<h4 id="item1"><h4>
 				<h4 id="item2"><h4>
 				<h4 id="item3"><h4>
 				<h4 id="item4"><h4>
+				-->
 			</div>
 			<div class="col-sm-6">
-				<h1 align="center">Good Afternoon</h1>
+				<h1 align="center">Good Night</h1>
 			</div>
 			<div class="col-sm-3">
 				<h4 align="center">Notes</h4>
-				<div class="form-group"><textarea class="form-control" rows="4" id="urls"></textarea></div>
+				<div class="form-group"><textarea placeholder="Take Your Quick Notes Here!" class="form-control" rows="6" id="urls" style="background: transparent; border:solid 2px blue;"></textarea></div>
 	  			<!--<button type="submit" align="center" id="button"></button>-->
 			</div>
 		</div>
-		<hr>
   	</div>
 
 <div class="container">
 	<form method="get" action="https://www.google.nl/search?q=google+search+bar">
 		<div class="form-group">
-			<img class="img-responsive center-block" src="img/google_logo.png" alt="Google Logo" width="272px" height="92px">
+		<!--<img class="img-responsive center-block" src="img/google_logo.png" alt="Google Logo" width="272px" height="92px"> -->
 			<div class="col-xs-2"></div>
 			<div class="col-xs-8">
-      	<input type="text" class="form-control" name="q" placeholder="Search Google or type URL">
+      	<input type="text" class="form-control" name="q" placeholder="Search Google or type URL" style="background: transparent; border:solid 2px blue;">
       </div>
       <div class="col-xs-2"></div>
     </div>
 	</form>	
 </div>
-
+<br>
 <div class="container">
-	<h4 id="event_name"></h4>
-	<h4 id="event_organiser"></h4>
-	<h4 id="event_venue"></h4>
-	<h4 id="event_link"></h4>
-	<h4 id="event_begin_time"></h4>
-	<h4 id="event_end_time"></h4>
-	<a href=id="event_link">link</a>
+	<div row>
+		<div class="col-sm-3">
+			<h4 id="category"></h4>
+			<h4 id="item1"><h4>
+			<h4 id="item2"><h4>
+			<h4 id="item3"><h4>
+			<h4 id="item4"><h4>
+		</div>
+		<div class="col-sm-3">
+			<h4 id="event_name"></h4>
+			<h4 id="event_organiser"></h4>
+			<h4 id="event_venue"></h4>
+			<h4 id="event_link"></h4>
+			<h4 id="event_begin_time"></h4>
+			<h4 id="event_end_time"></h4>
+		</div>
+		<div class="col-sm-3">
+			<h4 id="event_name2"></h4>
+			<h4 id="event_organiser2"></h4>
+			<h4 id="event_venue2"></h4>
+			<h4 id="event_link2"></h4>
+			<h4 id="event_begin_time2"></h4>
+			<h4 id="event_end_time2"></h4>
+		</div>
+		<div class="col-sm-3">
+			<h4 id="event_name3"></h4>
+			<h4 id="event_organiser3"></h4>
+			<h4 id="event_venue3"></h4>
+			<h4 id="event_link3"></h4>
+			<h4 id="event_begin_time3"></h4>
+			<h4 id="event_end_time3"></h4>
+		</div>
+	</div>
 </div>
 
 </body>
