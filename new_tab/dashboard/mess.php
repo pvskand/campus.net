@@ -25,7 +25,7 @@
 		}
 		date_default_timezone_set('Asia/Kolkata');
 		$hour =  date('H');
-		$minute = date('i');
+		$min = date('i');
 		if($hour>=22){
 			$category = "Breakfast";
 		}
