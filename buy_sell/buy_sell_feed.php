@@ -10,7 +10,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 
 
-$sql ="SELECT * FROM sell_table";
+$sql ="SELECT * FROM sell_table ORDER BY id DESC";
 $result = mysqli_query($conn , $sql);
 
 $data = array();	
@@ -28,7 +28,7 @@ if(mysqli_num_rows($result)) {
 	}
 }
 
-$sql1 ="SELECT * FROM sell_image";
+$sql1 ="SELECT * FROM sell_image ORDER BY id DESC";
 
 $result1 = mysqli_query($conn , $sql1);
 $count1 = 0;

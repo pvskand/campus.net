@@ -22,10 +22,10 @@
 
  <div id="content"> 
 
- 
-
-     
+   
   </div>
+ <center> <a href="sell_form.php"> To sell a product, go here!</a> </center>
+ <br>
   </body>
 </html>
 

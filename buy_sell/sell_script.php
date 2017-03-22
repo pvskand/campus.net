@@ -11,7 +11,7 @@ include('includes/connect.php');
 	    $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
 	    // set the PDO error mode to exception
 	    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	    echo "Connected successfully";
+	    //echo "Connected successfully";
 	    
 
 	    // upload the image
@@ -28,9 +28,11 @@ include('includes/connect.php');
 			$ph_no = (intval($_POST['ph_no']));
 
 			
-	    	$last_id = $conn->lastInsertId();
-
-	    	$last_id = $last_id;
+	    	$sql = "SELECT count(*) FROM sell_table"; 
+			$result = $conn->prepare($sql); 
+			$result->execute(); 
+			$number_of_rows = $result->fetchColumn();
+			$last_id = $number_of_rows +1;
 
 			
 			
@@ -40,7 +42,7 @@ include('includes/connect.php');
 				$uploaded = array();
 				$failed = array();
 				
-				$allowed = array('txt', 'jpg', 'jpeg' , 'pdf' ,'doc', 'docx');
+				$allowed = array('jpg', 'jpeg' , 'png', 'bmp');
 				foreach ($files['name'] as $position => $file_name) {
 					$file_tmp = $files['tmp_name'][$position];
 					$file_size = $files['size'][$position];
@@ -57,20 +59,22 @@ include('includes/connect.php');
 
 								$file_name_new = $last_id.'.'.$file_ext;
 								$file_destination = 'sell_upload/'.$file_name_new;
-								echo $file_destination, "file dest<br>";
-								echo $file_tmp, " temp dest<br>";
+								//echo $file_destination, "file dest<br>";
+								// echo $file_tmp, " temp dest<br>";
 								if (move_uploaded_file($file_tmp, $file_destination)) {
 									$upload[$position] = "[{$file_name}] successfully uploaded.";
 									$sql = "INSERT INTO sell_image(image_name) VALUES ('$file_name_new')";
 									$stmt = $conn->prepare($sql);
 	    	
 									if($stmt->execute()){
-										echo $file_name." is inserted in sell_image table.<br>";
+										//echo $file_name." is inserted in sell_image table.<br>";
 
 										$sql = "INSERT INTO sell_table (name, email, item, description, cost, phone_number) VALUES ('$name', '$email', '$item_name', '$item_desc', $item_cost, $ph_no)";
 										echo $sql;
 										$stmt = $conn->prepare($sql);
 								    	$stmt->execute();
+								    	header("Location: buy_sell.php");
+										exit();
 									} else {
 										echo "Unable to add to table sell_image<br>";
 									}			
