@@ -24,6 +24,9 @@ $(document).ready(function()
 						$("#tl").append("<li>"+info+"</li>");
 						$("#tl").append("<br>");
 
+						$("#events_id").append("<li>"+info+"</li>");
+						$("#events_id").append("<br>");
+
 
 
 
@@ -49,6 +52,7 @@ $(document).ready(function()
 						var res = due_date.split(" ");
 						var info = name + " " + author + "  " + res[0]; 
 						$("#tr").append("<li>"+info+"</li>");
+						$("#books_id").append("<li>"+info+"</li>");
 
 
 
@@ -68,7 +72,9 @@ $(document).ready(function()
 
 					if (data.length >0) {
 						data = $.parseJSON(data);
+
 						for (i= 0; i < data.length; i++) {
+							console.log("hello man");
 							bf1 = data[i]["item1"];
 							bf2 = data[i]["item2"];
 							bf3 = data[i]["item3"];
@@ -87,8 +93,62 @@ $(document).ready(function()
 							var ln = ln1 + " " + ln2 + " "+ ln3 + " "+ ln4;
 							var dn = dn1 + " " + dn2 + " "+ dn3 + " "+ dn4;
 							$("#bf").append("<li>"+bf+"</li>");
+							$("#bf").append("<br>");
 							$("#lunch").append("<li>"+ln+"</li>");
+							$("#lunch").append("<br>");
 							$("#dinner").append("<li>"+dn+"</li>");
+
+
+
+
+
+					
+						}
+					}
+					
+				}
+			});
+
+
+			$.ajax({
+				type: "POST",
+				url: "attendance.php",
+				success: function(data){
+						 console.log("Hello");
+
+					if (data.length >0) {
+						data = $.parseJSON(data);
+
+						for (i= 0; i < data.length; i++) {
+							console.log("hello man");
+
+							cn1 = data[i]["user_course1"];
+							cn2 = data[i]["user_course2"];
+							cn3 = data[i]["user_course3"];
+							cn4 = data[i]["user_course4"];
+
+							c1 = data[i]["user_course1_count"];
+							c2 = data[i]["user_course2_count"];
+							c3 = data[i]["user_course3_count"];
+							c4 = data[i]["user_course4_count"];
+
+							ct1 = data[i]["user_course1_total"];
+							ct2 = data[i]["user_course2_total"];
+							ct3 = data[i]["user_course3_total"];
+							ct4 = data[i]["user_course4_total"];
+
+							var p1 = (c1/ct1)*100;
+							var p2 = (c2/ct2)*100;
+							var p3 = (c3/ct3)*100;
+							var p4 = (c4/ct4)*100;
+
+							$("#attendance").append("<li>"+cn1 + " "+ p1+"%"+"</li>");
+							$("#attendance").append("<br>");
+							$("#attendance").append("<li>"+cn2 + " "+ p2+"%"+"</li>");
+							$("#attendance").append("<br>");
+							$("#attendance").append("<li>"+cn3 + " "+ p3+"%"+"</li>");
+							$("#attendance").append("<br>");
+							$("#attendance").append("<li>"+cn4 + " "+ p4+"%"+"</li>");
 
 
 

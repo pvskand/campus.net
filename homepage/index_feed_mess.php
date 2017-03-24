@@ -6,18 +6,20 @@ $username = "root";
 $password = "";
 $dbname = "iitk";
 // Create connection
+
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 $dates = array("", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday");
 $today = date('l');
 $today_ind = array_search($today, $dates);
 
-
+file_put_contents('file.txt', $today_ind);
 $sql1 ="SELECT * FROM breakfast WHERE day = $today_ind";
 
 $result1 = mysqli_query($conn , $sql1);
 $count1 = 0;
 if(mysqli_num_rows($result1)) {
+
 	while($row = mysqli_fetch_assoc($result1)) {
 
 		$data[$count1]["item1"] = $row["item1"]; 
