@@ -1,23 +1,24 @@
 {
-
-"name": "dashboard",
-"description": "Replaces new tab",
+"name": "Campus.Net",
+"description": "A must have new tab extension for students!",
+"icons": {
+      "128": "img/logo.png",
+      "16": "img/logo.png",
+      "48": "img/logo.png"
+   },
 "version": "1.0.0",
 
 "manifest_version": 2,
 
 "content_scripts": [{
-      "matches": ["<all_urls>"],
+      "matches": ["*://localhost/*"],
         "js": [
-            "popup.js"
-              ],
-        "css":[
-        	"style.css"
-        ]
+            "index.js"
+              ]
 }],
 
 "browser_action": {
-   "default_icon": "icon.png",
+   "default_icon": "img/logo.png",
    "default_popup": "index.html"
 },
 

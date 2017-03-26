@@ -1,3 +1,72 @@
-.day { background-color: gray; }
-.sunset { background-color: green; } 
-.night { background-color: black; }
+.day {
+	background-image: url("img/bg3.jpg");
+	background-size: cover;
+}
+
+.night {
+	background-image: url("img/bg4.jpg");
+	background-size: cover;
+}
+
+img.web_logo{
+	height: auto; 
+    width: auto; 
+    max-width: 200px;
+    max-height: 200px;
+}
+
+h1.greeting_head{
+	font-family: 'Product Sans', Arial, sans-serif;
+	font-size: 60px;
+	color: white;
+}
+
+tr.spaceUnder > td
+{
+  padding-bottom: 0.7em;
+}
+
+table.main_table{
+	font-family: 'Fira Sans Condensed', sans-serif;
+	font-size: 18px;
+	width:100%;
+	/*color:#2b3245;*/
+	color: black;
+	background: white;
+	opacity: 0.5;
+	border-collapse: separate;
+	border-spacing: 10px;
+	border-radius: 5px;
+	box-shadow: 0px 0px 3px gray inset;
+}
+
+table.main_table:hover{
+	background: white;
+	opacity: 1;
+	box-shadow: 0px 0px 50px black;
+}
+
+textarea.notes{
+	background: white;
+	opacity: 0.5;
+	color: black;
+	font-size: 18px;
+	font-family:"Reenie Beanie",arial,sans-serif;
+	font-size:200%;
+	font-weight:bold;
+	padding-bottom:10px;
+	border: none;
+	border-radius: 5px;
+	box-shadow: 0px 0px 3px gray inset;
+}
+
+textarea.notes:hover{
+	background: white;
+	opacity: 1;
+	box-shadow: 0px 0px 50px black;
+}
+
+.head_strip{
+	margin-left: 20px;
+	margin-right: 20px;
+}
